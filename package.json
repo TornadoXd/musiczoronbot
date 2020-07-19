@@ -1,23 +1,30 @@
 {
-  "name": "MusicZoronBot",
+  "name": "musiczoronbot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TornadoXd/MusicZoronBot.git"
+    "url": "git+https://github.com/TornadoXd/musiczoronbot.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/TornadoXd/MusicZoronBot/issues"
+    "url": "https://github.com/TornadoXd/musiczoronbot/issues"
   },
-  "homepage": "https://github.com/TornadoXd/MusicZoronBot#readme",
+  "homepage": "https://github.com/TornadoXd/musiczoronbot#readme",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ffmpeg": "0.0.4",
+    "opusscript": "0.0.7",
+    "simple-youtube-api": "^5.2.1",
+    "ytdl-core": "^3.1.2"
   }
 }

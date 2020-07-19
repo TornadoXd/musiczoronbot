@@ -15,7 +15,6 @@ require("./server.js");
         }, 10000); // Runs this every 10 seconds.
     });
 
-const TOKEN = process.env.BOT_TOKEN;
 const PREFIX = process.env.PREFIX;
 const GOOGLE_API_KEY = process.env.YTAPI_KEY;
 
