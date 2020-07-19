@@ -1,0 +1,23 @@
+{
+  "name": "MusicZoronBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TornadoXd/MusicZoronBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TornadoXd/MusicZoronBot/issues"
+  },
+  "homepage": "https://github.com/TornadoXd/MusicZoronBot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0"
+  }
+}
