@@ -51,9 +51,9 @@ bot.on("message", async (msg) => { // eslint-disable-line
 __**Commands List**__
 > \`play\` > **\`play [title/url]\`**
 > \`search\` > **\`search [title]\`**
-> \`skip\`, \`stop\`,  \`pause\`, \`resume\`
-> \`nowplaying\`, \`queue\`, \`volume\``)
-            .setFooter("©️ 2020 | Zoron Official Bot | Zoron - VoiceBot | develop by Tornado");
+> \`skip -> s\`, \`disconnect -> dis\`,  \`pause\`, \`resume\`
+> \`nowplaying -> np\`, \`queue -> q\`, \`volume -> vol\``)
+            .setFooter("©️ 2020 | Zoron Official Bot | Zoron - MusicBot | develop by Tornado");
         msg.channel.send(helpembed);
     }
     if (command === "play" || command === "p") {
@@ -143,18 +143,18 @@ Please provide a value to select one of the search results ranging from 1-10.
             return handleVideo(video, msg, voiceChannel);
         }
 
-    } else if (command === "skip") {
+    } else if (command === "skip" || command === "s") {
         if (!msg.member.voice.channel) return msg.channel.send("I'm sorry but you need to be in a voice channel to play a music!");
         if (!serverQueue) return msg.channel.send("There is nothing playing that I could **\`skip\`** for you.");
         serverQueue.connection.dispatcher.end("Skip command has been used!");
         return msg.channel.send("⏭️  **|**  Skip command has been used!");
 
-    } else if (command === "stop") {
+    } else if (command === "disconnect" || command === "dis") {
         if (!msg.member.voice.channel) return msg.channel.send("I'm sorry but you need to be in a voice channel to play music!");
-        if (!serverQueue) return msg.channel.send("There is nothing playing that I could **\`stop\`** for you.");
+        if (!serverQueue) return msg.channel.send("There is nothing playing right now.");
         serverQueue.songs = [];
-        serverQueue.connection.dispatcher.end("Stop command has been used!");
-        return msg.channel.send("⏹️  **|**  Stop command has been used!");
+        serverQueue.connection.dispatcher.end("Ive been disconnected.");
+        return msg.channel.send("⏹️  **|**  Ive been disconnected.");
 
     } else if (command === "volume" || command === "vol") {
         if (!msg.member.voice.channel) return msg.channel.send("I'm sorry but you need to be in a voice channel to play music!");
@@ -163,7 +163,7 @@ Please provide a value to select one of the search results ranging from 1-10.
         if (isNaN(args[1]) || args[1] > 100) return msg.channel.send("Volume only can be set in range **1** - **100**.");
         serverQueue.volume = args[1];
         serverQueue.connection.dispatcher.setVolume(args[1] / 100);
-        return msg.channel.send(`I set the volume to: **\`${args[1]}%\`**`);
+        return msg.channel.send(`The volume of the music as been set to: **\`${args[1]}%\`**`);
 
     } else if (command === "nowplaying" || command === "np") {
         if (!serverQueue) return msg.channel.send("There is nothing playing.");
@@ -236,7 +236,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     } else {
         serverQueue.songs.push(song);
         if (playlist) return;
-        else return msg.channel.send(`<:yes:591629527571234819>  **|** **\`${song.title}\`** has been added to the queue!`);
+        else return msg.channel.send(`<:white_check_mark>  **|** **\`${song.title}\`** has been added to the queue!`);
     }
     return;
 }
@@ -264,8 +264,9 @@ function play(guild, song) {
         embed: {
             color: "RANDOM",
             description: `🎶  **|**  Start Playing: **\`${song.title}\`**`
+        
         }
     });
 }
 
-bot.login("NzM0NDY2MzUwNzYzODY4MjMx.XxSHIw.8Bz8Zu2YGs0ZxqkjQXF7LzOotd8");
+bot.login(process.env.token);
