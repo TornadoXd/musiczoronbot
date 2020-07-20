@@ -170,9 +170,8 @@ Please provide a value to select one of the search results ranging from 1-10.
 
     } else if (command === "nowplaying" || command === "np") {
         const nowplayingEmbed = new Discord.MessageEmbed()
-        if (!serverQueue) return msg.channel.send().setTitle("__Now Playing__").setDescription("There is nothing playing right now.")
-        msg.channel.send(nowplayingEmbed);
-        return msg.channel.send().setTitle("__Now Playing__").setDescription(`🎶  **|**  Now Playing: **\`${serverQueue.songs[0].title}\`**`)
+        if (!serverQueue) return msg.channel.send("There is nothing playing.");
+        return msg.channel.send(`🎶  **|**  Now Playing: **\`${serverQueue.songs[0].title}\`**`);
 
     } else if (command === "queue" || command === "q") {
         if (!serverQueue) return msg.channel.send("There is nothing playing.");
@@ -241,7 +240,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     } else {
         serverQueue.songs.push(song);
         if (playlist) return;
-        else return msg.channel.send(`<:white_check_mark>  **|** **\`${song.title}\`** has been added to the queue!`);
+        else return msg.channel.send(`<:white_check_mark:734803875550461972>  **|** **\`${song.title}\`** has been added to the queue!`);
     }
     return;
 }
