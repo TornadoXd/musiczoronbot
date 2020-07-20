@@ -11,7 +11,7 @@ require("./server.js");
         console.log('Ready!');
 
         setInterval(() => {
-            client.user.setActivity(`z!help For Bot Commands | Zoron Offical Bot | ${client.guilds.cache.size} Servers`, { type: 'WATCHING' });
+            client.user.setActivity(`m!help For Bot Commands | Zoron Offical Bot | ${client.guilds.cache.size} Servers`, { type: 'WATCHING' });
         }, 10000); // Runs this every 10 seconds.
     });
 
