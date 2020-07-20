@@ -268,4 +268,4 @@ function play(guild, song) {
     });
 }
 
-bot.login(process.env.token);
+bot.login("NzM0NDY2MzUwNzYzODY4MjMx.XxSHIw.8Bz8Zu2YGs0ZxqkjQXF7LzOotd8");
