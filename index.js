@@ -6,14 +6,17 @@ const dotenv = require("dotenv").config();
 const client = new Discord.Client();
 require("./server.js");
 
+client.on('ready', () => {
+    console.log(`Logged in as ${client.user.tag}!`);
+  });
+  
     //Bot Status
     client.on('ready', () => {
-        console.log('Ready!');
-
-        setInterval(() => {
-            client.user.setActivity(`m!help For Bot Commands | Zoron Offical Bot | ${client.guilds.cache.size} Servers`, { type: 'WATCHING' });
-        }, 10000); // Runs this every 10 seconds.
-    });
+      console.log('Ready!');
+      setInterval(() => {
+          client.user.setActivity(`z!help For Bot Commands | Zoron Offical Bot | ${client.guilds.cache.size} Servers`, { type: 'WATCHING' });
+      }, 10000); // Runs this every 10 seconds.
+  });
 
 const PREFIX = process.env.PREFIX;
 const GOOGLE_API_KEY = process.env.YTAPI_KEY;
