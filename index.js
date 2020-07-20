@@ -169,7 +169,8 @@ Please provide a value to select one of the search results ranging from 1-10.
         return msg.channel.send(`The volume of the music as been set to: **\`${args[1]}%\`**`);
 
     } else if (command === "nowplaying" || command === "np") {
-        if (!serverQueue) return msg.channel.send("There is nothing playing.");
+        const nowplayingEmbed = new Discord.MessageEmbed()
+        if (!serverQueue) return msg.channel.send().setTitle("__Now Playing__").setDescription("There is nothing playing right now.")
         return msg.channel.send(`🎶  **|**  Now Playing: **\`${serverQueue.songs[0].title}\`**`);
 
     } else if (command === "queue" || command === "q") {
